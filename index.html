@@ -334,6 +334,12 @@
       <p>Business ID 3088257-7</p>
     </footer>
   </div>
+
+  <script>
+    document.querySelector(".contact-mail").addEventListener("click", function () {
+      if (window.fathom) window.fathom.trackEvent("email click");
+    });
+  </script>
 </body>
 
 </html>
