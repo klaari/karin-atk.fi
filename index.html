@@ -336,8 +336,14 @@
   </div>
 
   <script>
-    document.querySelector(".contact-mail").addEventListener("click", function () {
-      if (window.fathom) window.fathom.trackEvent("email click");
+    function trackClick(link, name) {
+      link.addEventListener("click", function () {
+        if (window.fathom) window.fathom.trackEvent(name + " click");
+      });
+    }
+    trackClick(document.querySelector(".contact-mail"), "email");
+    document.querySelectorAll(".contact-links a").forEach(function (link) {
+      trackClick(link, link.textContent.toLowerCase());
     });
   </script>
 </body>
